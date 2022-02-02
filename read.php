@@ -12,6 +12,7 @@
     <table border=1 align=center>
         <thead>
             <tr>
+                <th>댓글</th>
                 <th>파일 삭제</th>
                 <th>파일 다운로드</th>
                 <th>파일 수정</th>
@@ -31,6 +32,7 @@
             $result = mysqli_query($db, $sql);
             while($tmp = mysqli_fetch_assoc($result)){ ?>
             <tr>
+                <td><a href = "reply_view.php?no=<?=$tmp['no']?>">댓글</a></td>
                 <td><a href = "filedelete.php?no=<?=$tmp['no']?>">파일 삭제</a></td>
                 <td><a href = "download.php?no=<?=$tmp['no']?>">파일 다운로드</a></td>
                 <td><a href = "fileupdate_view.php?no=<?=$tmp['no']?>">파일 수정</a></td>
