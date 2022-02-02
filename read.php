@@ -31,7 +31,7 @@
             $result = mysqli_query($db, $sql);
             while($tmp = mysqli_fetch_assoc($result)){ ?>
             <tr>
-                <td><a href = "">파일 삭제</a></td>
+                <td><a href = "filedelete.php?no=<?=$tmp['no']?>">파일 삭제</a></td>
                 <td><a href = "download.php?no=<?=$tmp['no']?>">파일 다운로드</a></td>
                 <td><a href = "fileupdate_view.php?no=<?=$tmp['no']?>">파일 수정</a></td>
                 <td><?php echo $tmp['no']?></td>

@@ -4,7 +4,7 @@
 
  $no = $_GET['no'];
  $db = new mysqli('localhost','root','whwpdms','je');
- $sql = "select * from board";
+ $sql = "SELECT * FROM board WHERE no = $no";
  $result = mysqli_query($db, $sql);
  $tmp = mysqli_fetch_assoc($result);
 
@@ -45,6 +45,7 @@
 <body>
     <table border=1 align=center>
         <form action="fileupdate_server.php" method = "post" enctype="multipart/form-data">  <!--enctype 빠지면 파일이 안 올라가-->
+            <input type = "hidden" name="no" value ="<?=$_GET['no']?>"> <!-- 이거 빠지면 수정이 안되!-->
             <tr>
                 <td>제목</td>
                 <td><?php echo $tmp['utitle']?></td>
