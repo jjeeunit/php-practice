@@ -8,20 +8,19 @@ $db = mysqli_connect('localhost','root','whwpdms','je');
 
 
 $boardNo = $_POST['boardNo'];
-$originNo = $_POST['originNo'];
-$groupOrd = $_POST['groupOrd'];
-$depth = $_POST['depth'];
+$groupOrd = 0;
+$depth = 0;
 $rewriter = $_POST['rewriter'];
 $recontent = $_POST['recontent'];
 // $redate = date('Y-m-d H:i:s');
 
 
-// $sql = "SELECT MAX(replyNo) AS maxno FROM test_reply WHERE boardNo = $boardNo";
-// $Result_reply = mysqli_query($db, $sql);
-// $Fetch = mysqli_fetch_assoc($Result_reply);
-// $reply_no = $Fetch['maxno'];
-// $reply_no++;
-$sql1 = "INSERT INTO test_reply (boardNo, originNo, groupOrd, depth, rewriter, recontent, redate) VALUES ('$boardNo','$originNo', '$groupOrd','$depth','$rewriter','$recontent', CURDATE())";
+$sql = "SELECT MAX(replyNo) AS replyNo FROM test_reply WHERE boardNo = $boardNo";
+$Result_reply = mysqli_query($db, $sql);
+$Fetch = mysqli_fetch_assoc($Result_reply);
+$originNo = $Fetch['replyNo'];
+$originNo = $originNo + 1;
+$sql1 = "INSERT INTO test_reply (boardNo, originNo, groupOrd, depth, rewriter, recontent, redate) VALUES ('$boardNo','$originNo', '$groupOrd','$depth','$rewriter','$recontent', NOW())";
 $result = mysqli_query($db, $sql1);
 ?>
 <html>
