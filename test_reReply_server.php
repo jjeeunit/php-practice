@@ -21,7 +21,7 @@ $recontent = $_POST['recontent'];
 // $Fetch = mysqli_fetch_assoc($Result_reply);
 // $reply_no = $Fetch['maxno'];
 // $reply_no++;
-$sql1 = "INSERT INTO test_reply (boardNo, originNo, groupOrd, depth, rewriter, recontent, redate) VALUES ('$boardNo','$originNo', '$groupOrd','$depth','$rewriter','$recontent', CURDATE())";
+$sql1 = "INSERT INTO test_reply (boardNo, originNo, groupOrd, depth, rewriter, recontent, redate) VALUES ('$boardNo','$originNo', '$groupOrd','$depth','$rewriter','$recontent', NOW())";
 $result = mysqli_query($db, $sql1);
 ?>
 <html>

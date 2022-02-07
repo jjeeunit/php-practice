@@ -23,7 +23,6 @@ if($depth == 0){
     if($depth == 1){
         $sql = "DELETE FROM test_reply WHERE replyNo = '$replyNo'";
         $result = mysqli_query($db, $sql);
-        var_dump($sql);
     }
 }
 ?>
