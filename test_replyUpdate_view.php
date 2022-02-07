@@ -24,6 +24,7 @@ $tmp2 = mysqli_fetch_assoc($result2);
         <h1>댓글 수정</h1> 
         <form name = "test_replyUpdate_server" action = "test_replyUpdate_server.php" method ="post">
             <input type="hidden" name="replyNo" value="<?=$tmp2['replyNo']?>">
+            <input type="hidden" name="boardNo" value="<?=$tmp2['boardNo']?>">
             <div id ="rewriter">
                 <textarea name ="rewriter" id="rewriter" rows="1" cols="55" placeholder="작성자" maxlength="100" required><?php echo $tmp2['rewriter']; ?></textarea>
             </div>
