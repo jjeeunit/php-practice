@@ -78,7 +78,7 @@ $tmp = mysqli_fetch_assoc($result);
             <td></td>
             <td>
                 <a href="test_replyUpdate_view.php?no=<?=$no?>&replyNo=<?=$tmp2['replyNo']?>">수정</a> 
-                <a href="test_replyDelete.php?replyNo=<?=$tmp2['replyNo']?>">삭제</a>
+                <a href="test_replyDelete.php?boardNo=<?=$tmp2['boardNo']?>&depth=<?=$tmp2['depth']?>&originNo=<?=$tmp2['originNo']?>&replyNo=<?=$tmp2['replyNo']?>">삭제</a>
                 <a href="test_reReply_view.php?boardNo=<?=$tmp['no']?>&originNo=<?=$tmp2['replyNo']?>&groupOrd=<?=$tmp2['groupOrd']?>&depth=<?=$tmp2['depth']?>">대댓글</a>
             </td>
         </tr>
