@@ -11,9 +11,12 @@ $db = mysqli_connect('localhost','root','whwpdms','je');
 if($depth == 0){
     echo "댓글입니다";
     $sql_cnt_reply = "SELECT COUNT(originNo) FROM test_reply WHERE originNO = $originNo";
-    if($sql_cnt_reply > 1){
+    $result_cnt_reply = mysqli_query($db,$sql_cnt_reply);
+    $result_cnt_reply = (int)$result_cnt_reply;
+    
+    if($result_cnt_reply > 1){
         echo "삭제불가";
-    }else if($sql_cnt_reply == 1){
+    }else if($result_cnt_reply == 1){
         $sql2 = "DELETE FROM test_reply WHERE replyNo = '$replyNo'";
         $result2 = mysqli_query($db, $sql2);
         echo "삭제되었습니다";
