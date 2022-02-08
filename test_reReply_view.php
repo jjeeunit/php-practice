@@ -2,20 +2,20 @@
 ini_set( "display_errors", 1 );
 error_reporting( E_ALL );
 
-//$bno = $_GET['bno'];
 $boardNo = $_GET['boardNo'];
 $originNo = $_GET['originNo'];
 $groupOrd = $_GET['groupOrd'];
 $depth = $_GET['depth'];
 
 $db = mysqli_connect('localhost','root','whwpdms','je');
-$sql_reply = "SELECT COUNT(*) as cnt FROM test_reply WHERE originNo= $originNo AND depth != 0";
 
 // 계산해주는 부분
+$sql_reply = "SELECT COUNT(*) as cnt FROM test_reply WHERE originNo = $originNo AND depth != 0";
 $result_reply = mysqli_query($db, $sql_reply);
 $tmp2 = mysqli_fetch_assoc($result_reply);
-$groupOrd = (int)$tmp2['cnt'] + 1;
-$depth = (int)$depth + 1;
+$groupOrd = $tmp2['cnt'] + 1;
+$depth = $depth + 1;         // 이건 번외! while문 안돌리는데 대댓글이 어떻게 들어가는지?
+//$depth = (int)$depth + 1;         // php에선 타입선언 안해도 되?
 ?>
 
 <!DOCTYPE html>

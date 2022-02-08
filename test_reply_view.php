@@ -2,7 +2,7 @@
 ini_set( "display_errors", 1 );
 error_reporting( E_ALL );
 
-$no = $_GET['no'];
+$no = $_GET['no'];           
 $db = mysqli_connect('localhost','root','whwpdms','je');
 $sql = "SELECT * FROM board WHERE no = $no";
 $result = mysqli_query($db, $sql);
@@ -89,7 +89,7 @@ $tmp = mysqli_fetch_assoc($result);
     <p>&nbsp;</p>
     <div style="border: 1px solid; width: 600px; padding: 5px">
         <form id="reply" name="test_reply_server" action="test_reply_server.php" method="post">
-            <input type="text" name="boardNo" value="<?=$no?>"/>
+            <input type="hidden" name="boardNo" value="<?=$no?>"/>
             작성자: <input type="text" name="rewriter" size="20" maxlength="20"> <br/>
             <textarea name="recontent" rows="3" cols="60" maxlength="500" placeholder="댓글을 달아주세요."></textarea>
             <button type="submit">댓글달기</button>
