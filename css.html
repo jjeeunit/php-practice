@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+    <style>
+        #col1{ color : red;
+        }
+        #col2{ color : blue;
+        }
+    </style>
+</head>
+<body>
+    <div id = "col1">1</div>
+    <div id = "col2">2</div>
+    <button onclick="colorChange()">적용</button>
+    <script>
+            var col1 = '';
+            var col2 = '';
+        function colorChange() {
+            console.log(col1)
+            console.log(col2)
+            
+            if (col1 !== 'blue') {
+                col1 = 'blue';
+                document.getElementById('col1').style.color = col1;       
+                }
+            else if (col1 == 'blue') {
+                col1 = 'red';
+                document.getElementById('col1').style.color = col1; 
+                }
+
+            if (col2 !== 'red') {
+                col2 = 'red';
+                document.getElementById('col2').style.color = col2;       
+                }
+            else if (col2 == 'red') {
+                col2 = 'blue';
+                document.getElementById('col2').style.color = col2; 
+                }
+            }
+    </script>
+</body>
+</html>
