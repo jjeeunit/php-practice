@@ -1,30 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>move</title>
-    <style>
-        .box_wrapper { margin-top: 100px; font-size: 30px; }
-        .box1{background:green; width: 70px;}
-        .box2{background:red; width: 70px;}
-    </style>
-</head>
-<body>
-    <div class = "box_wrapper">
-        <div class = "box1">1번</div>
-        <div class = "box2">2번</div>
-    </div>
-    <button onclick="moveToPrev()">MOVE</button>
-    <script>
-        function moveToPrev(){
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
 
-            const box1 = document.querySelector('.box1');
-            const box2 = document.querySelector('.box2');
+        <div id="box">
+            <div class="item">1</div>
+            <div class="item">2</div>
+        </div>
+        <button id="btn" type="button">교환</button>
 
-            box1.insertBefore(box2.firstChild.box1.firstChild);
-        }
-    </script>
-</body>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var btn = document.getElementById('btn'),
+                    box = document.getElementById('box'),
+                    item = document.getElementsByClassName('item');
+
+                btn.onclick = function(event) {
+                   (box.prepend(item[1]));
+                }
+            });
+        </script>
+    </body>
 </html>

@@ -5,46 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>move</title>
-    <style>
-        .box_wrapper { margin-top: 100px; font-size: 30px; }
-        .box1{background:green; width: 70px;}
-        .box2{background:red; width: 70px;}
-    </style>
+    <link rel="stylesheet" href = "move.css">
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous">
+    </script>
 </head>
 <body>
-    <div class = "box_wrapper">
-        <div class = "box1" id="num_1" value="box_1">1번</div>
-        <div class = "box2" id="num_2">2번</div>
+    <div id = "box_wrapper">
+        <div class = "box_wrapper_child num_1" id="box_1">1번</div>
+        <div class = "box_wrapper_child num_2" id="box_2">2번</div>
     </div>
-    <button onclick="boxChange()">MOVE</button>
-    <input type="button" id="target" value="button" />
-
+    <input type="button" value="button" id="btn"/>
     <script>
-        var box1_id = document.getElementById('num_1');
-        var box1_value = box1_id.getAttribute('value');
-        var button_value = document.getElementById('target');
-        
-        button_value.addEventListener('click', function(event){
-            alert('hello world, '+event.target.value);
-            console.log('box1_id::', box1_id);
-            console.log('box1_value::', box1_value);
-            
-            if(box1_value == 'box_1'){
-                // box1_id.style.left = (box1_id.offsetLeft + 50) + 'px';
-            }
-        });
-
-        // var col1 = document.getElementById('num_1');
-        // console.log(col1)
-        function boxChange() {
-            
-            if (col1 == '1번') {
-                alert("2번");        //col1 에 class를 가져와서 1번을 담아
-            }
-            if (col2 == '2번') {
-                alert("1번");
-            }
-        }
+        $(document).ready(function(){
+            $('#btn').on('click',function(){
+                $('#box_wrapper').prepend( $('.box_wrapper_child').last() );
+            });
+        })
     </script>
 </body>
 </html>

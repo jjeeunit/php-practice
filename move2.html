@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>move</title>
+    <link rel="stylesheet" href = "move.css">
+</head>
+<body>
+    <div id = "box_wrapper">
+    <div class = "box_wrapper_child num_1" id="box_1">1번</div>
+    <div class = "box_wrapper_child num_2" id="box_2">2번</div>  
+    </div>
+    <input type="button" value="button" id="btn"/>
+    <script>
+            var box = document.getElementById('box_wrapper');
+            var btn = document.getElementById('btn');
+            btn.addEventListener("click", function(){
+                box.prepend(box.lastElementChild);
+            });
+    </script>
+</body>
+</html>

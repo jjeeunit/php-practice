@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <style>
+            .red-color .red{color:#FF0000}
+            .blue .red{color:#0000FF}
+            .blue-color .blue{color:#0000FF}
+            .red .blue{color:#FF0000}
+            .color{font-weight:700}
+        </style>
+    </head>
+    <body>
+
+        <div id="item1" class="color red-color">
+            <div  class="item red">1</div>
+        </div>
+        <div id="item2" class="color blue-color">
+            <div class="item blue">2</div>
+        </div>
+
+        <button id="btn" type="button">교환</button>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var btn = document.getElementById('btn'),
+                    item1 = document.getElementById('item1'),
+                    item2 = document.getElementById('item2');
+
+                btn.onclick = function(event) {
+                   item1.classList.toggle('blue');
+                   item2.classList.toggle('red');
+                }
+            });
+        </script>
+    </body>
+</html>
