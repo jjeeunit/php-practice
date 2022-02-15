@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .AAA{display: block;}
+        .BBB{display: none;}
+    </style>
+</head>
+<body>
+    <div>
+        <div class = "AAA" id = "A1">A1</div><input id="btn1" type="button" value = "click" onclick="buttonOnclick(this)">
+        <div class = "AAA" id = "A2">A2</div><input id="btn2" type="button" value = "click" onclick="buttonOnclick(this)">
+        <div class = "AAA" id = "A3">A3</div><input id="btn3" type="button" value = "click" onclick="buttonOnclick(this)">
+
+    </div>
+    <div>
+        <div class = "BBB" id = "B1">B1</div>
+        <div class = "BBB" id = "B2">B2</div>
+        <div class = "BBB" id = "B3">B3</div>
+    </div>
+    <script>
+
+           function buttonOnclick(target){
+            
+            var b1 = document.getElementById('B1');
+            var b2 = document.getElementById('B2');
+            var b3 = document.getElementById('B3');
+            
+            if(target.id == 'btn1'){
+                if(b1.style.display == "block"){
+                    b1.style.display = "none";
+                }else{
+                    b1.style.display = "block";
+                }
+                    b2.style.display = "none";
+                    b3.style.display = "none";
+            }else if(target.id == 'btn2'){
+                if(b2.style.display == "block"){
+                    b2.style.display = "none";
+                } else {
+                    b2.style.display = "block";
+                }
+                    b1.style.display = "none";
+                    b3.style.display = "none";
+            }else if(target.id == 'btn3'){
+                if(b3.style.display == "block"){
+                    b3.style.display = "none";
+                } else {
+                    b3.style.display = "block";
+                }
+                    b1.style.display = "none";
+                    b2.style.display = "none";
+            }
+        }
+
+
+    </script>
+</body>
+</html>

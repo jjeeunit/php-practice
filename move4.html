@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>move</title>
+    <link rel="stylesheet" href = "move.css">
+</head>
+<body>
+    <div id = "box_wrapper">
+        <div id = "box_1" class = num>1번</div>
+        <div id = "box_2" class = num>2번</div>
+        <div id = "box_3" class = num>3번</div>
+    </div>
+    <button id="btn" type="button">교환</button>
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+            var box_wrapper = document.getElementById('box_wrapper');
+            var btn = document.getElementById('btn');
+            var num = document.getElementsByClassName('num');
+
+            btn.onclick = function(){
+                (box_wrapper.append(num[0]));
+            }
+        });
+    </script>
+</body>
+</html>
