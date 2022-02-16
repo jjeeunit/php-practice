@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id = "box_wrapper">
-        <div id = "box_1" class = "num active">1번</div>
+        <div id = "box_1" class = "num">1번</div>
         <div id = "box_2" class = "num">2번</div>
         <div id = "box_3" class = "num">3번</div>
     </div>
@@ -23,46 +23,35 @@
             var box_1 = document.getElementById('box_1');
             var box_2 = document.getElementById('box_2');
             var box_3 = document.getElementById('box_3');
-            
-            btn.onclick = function(){
-                var active = document.getElementsByClassName('active');
-                var id = active[i].id;
-                
-                console.log(id)
-                for(i=0; i<3; i++){
-                    if ( id == 'box_1' ) {
-                            box_1.style.display = "none";
-                            box_2.style.display = "block";
-                            box_3.style.display = "none";
-                    }
-                    if ( id == 'box_2' ) {
-                            box_1.style.display = "none";
-                            box_2.style.display = "none";
-                            box_3.style.display = "block";
-                    }
-                    if ( id == 'box_3' ) {
-                            box_1.style.display = "block";
-                            box_2.style.display = "none";
-                            box_3.style.display = "none";
-                    }
-                }
-                // if(id == 'box_1'){
-                //     box_1.style.display = "block";
-                //     box_2.style.display = "none";
-                //     box_3.style.display = "none";
-                // }
-                // if(id == 'box_2'){
-                //     box_1.style.display = "none";
-                //     box_2.style.display = "block";
-                //     box_3.style.display = "none";
-                // }
-                // if(id == 'box_3'){
-                //     box_1.style.display = "none";
-                //     box_2.style.display = "none";
-                //     box_3.style.display = "block";
-                // }
 
-                //(box_wrapper.append(num[0]));
+            btn.onclick = function(){
+                (box_wrapper.append(num[0]));
+                var id = num[0].id;
+
+                // box_2.classList.add("active");
+                // box_3.classList.add("active");
+                
+                //console.log(box_3)
+                //console.log(typeof(box_1))
+                
+                //console.log(id)
+                //console.log(typeof(id))
+                
+                if ( id == 'box_1' ) {
+                    box_1.style.display = "block";
+                    box_2.style.display = "none";
+                    box_3.style.display = "none";
+                 }
+                if( id == 'box_2'){
+                    box_1.style.display = "none";
+                    box_2.style.display = "block";
+                    box_3.style.display = "none";
+                }
+                if( id == 'box_3'){
+                    box_1.style.display = "none";
+                    box_2.style.display = "none";
+                    box_3.style.display = "block";
+                }
             }
         });
     </script>
