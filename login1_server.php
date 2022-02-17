@@ -4,26 +4,53 @@
  
  session_start();
 
-$db = new mysqli('localhost','je','jejedb79!!','je');
-$userid = $_POST['userid'];
-$pass1 = $_POST['pass1'];
+$Db = new Mysqli('localhost','je','jejedb79!!','je');
+$userid = isset($_POST['userid']) ? $_POST['userid'] : false;
+$pass1 = isset($_POST['pass1']) ? $_POST['pass1'] : false;
 $sql = "select * from wpdms where userid = '$userid'";
-$result = mysqli_query($db, $sql);
 
-if(mysqli_num_rows($result)===1){
-    $row = mysqli_fetch_assoc($result);
-    $hash = $row['pass1'];
+function _json($msg= '', $err = true)
+{
+    $json = array('err' => $err, 'msg'=> $msg);
 
-    $result = password_verify($pass1, $hash);
+    return exit(json_encode($json, JSON_FORCE_OBJECT));
 
-    if($result == true){
-        $_SESSION['userid'] = $userid;
-        echo json_encode("로그인 성공!!!!!");
-    }else{
-        echo json_encode("로그인이 거부되었습니다");
-    }
-    
-}else{
-    echo json_encode("로그인에 실패하였습니다.");
 }
+
+
+if ((false === ($res = $Db->query($sql)))) return _json('회원정보를 찾을 수 없습니다.');
+if ($res->num_rows < 1) return _json('아이디가 일치하지 않습니다.');
+$row = $res->fetch_assoc();
+if (true !== password_verify($pass1, $row['pass1'])) return _json('비밀번호가 일치하지 않습니다.');
+$_SESSION['userid'] = $userid;
+return _json('', false);
+
+/*
+if ((false === ($res = $Db->query($sql)))) exit(json_encode(array('err'=> true, 'msg' => '회원정보를 찾을 수 없습니다.')));
+if ($res->num_rows < 1) exit(json_encode(array('err'=> true, 'msg' => '회원정보를 찾을 수 없습니다.')));
+$row = $res->fetch_assoc();
+if (true !== password_verify($pass1, $row['pass1'])) exit(json_encode(array('err'=> true, 'msg'=>'비밀번호가 일치하지 않습니다.')));
+$_SESSION['userid'] = $userid;
+exit(json_encode(array('err'=> false, 'msg' => '')));
+*/
+
+/*
+var_dump($Db->query($sql));
+if ((false !== ($res = $Db->query($sql))) && $res->num_rows > 0 ) {
+    $row = $res->fetch_assoc();
+    if (true !== password_verify($pass1, $row['pass1']))
+    
+}
+*/
 ?>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <br><br>
+    <div class="base">
+        <button type="button" name="btn" value="" onclick="location.href='logout1.php'">LOGOUT</button>
+    </div>
+</body>
+</html>
