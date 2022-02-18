@@ -27,7 +27,7 @@ $sql = "select * from board";
 $result = mysqli_query($db, $sql);
     while( $tmp = mysqli_fetch_assoc($result) ) { ?>
         <tr>
-            <td><a href="test_reply_view.php?no=<?=$tmp['no']?>">댓글</a></td>
+            <td><a href="reply_view.php?no=<?=$tmp['no']?>">댓글</a></td>
             <td><a href="read_1.php?no=<?=$tmp['no']?>">파일다운로드</a><?php echo $tmp['no']?><br>
                 <a href="fileupdate_view.php?no=<?=$tmp['no']?>">파일수정</a><?php echo $tmp['no']?>
             </td>
