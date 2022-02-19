@@ -38,11 +38,11 @@ $tmp = mysqli_fetch_assoc($result);
             </tr>
             <tr>
                 <td>첨부파일1</td>
-                <td><?php echo $tmp['ufile1']?></td>
+                <td><?php echo $tmp['ufile1']?><a href = "download_1.php?file_no=<?=$tmp['ufile1']?>">파일다운로드</a></td>
             </tr>
             <tr>
                 <td>첨부파일2</td>
-                <td><?php echo $tmp['ufile2']?></td>
+                <td><?php echo $tmp['ufile2']?><a href = "download_1.php?file_no=<?=$tmp['ufile2']?>">파일다운로드</a></td>
             </tr>
         </form>
     </table>
@@ -78,9 +78,9 @@ $tmp = mysqli_fetch_assoc($result);
         <tr>
             <td></td>
             <td>
-                <a href="">수정</a>
+                <a href="replyUpdate_view.php?replyNo=<?=$tmp2['replyNo']?>">수정</a>
                 <a href="">삭제</a>
-                <a href="">대댓글</a></a>
+                <a href="reReply_view.php?boardNo=<?=$tmp['no']?>&originNo=<?=$tmp2['replyNo']?>&groupOrd=<?=$tmp2['groupOrd']?>&depth=<?=$tmp2['depth']?>">대댓글</a>
             </td>
         </tr>
     <?php }?>
