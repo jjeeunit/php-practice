@@ -8,7 +8,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
 <body>
-    <form name = "login1_server" action="login1_server.php" method = "post">
+    <form name = "login2_server" action="login2_server.php" method = "post">
         <h1>login</h1>
         <label>Id:</label>
         <input type="text" placeholder="ID" name="userid" value="">
@@ -32,9 +32,9 @@
                 return false;
             }
             /**********fetch 사용 */
-            var frm = document.login1_server;
+            var frm = document.login2_server;
             var formData = new FormData(frm);
-            fetch('./login1_server.php',{
+            fetch('./login2_server.php',{
             method:"post",
             headers : new Headers(),
             body : formData
@@ -45,7 +45,7 @@
                     alert(json.msg);
                 } else {
                     alert('로그인 성공');
-                    location.href="login1_ajax.php";
+                    location.href="login2_pdo.php";
                 }
             })
             .catch(error => console.error(error));
@@ -68,29 +68,6 @@
         //             }
         //         }
         //     })
-            /******참고 */
-            // var ajaxHeader = new Headers();
-            // fetch('/super/main/newpick.ajax.php', {
-            //     body : formData,
-            //     method :'post',
-            //     dataType : 'json',
-            //     headers : ajaxHeader
-            // }).then(function(response){
-            //     if (response.ok) return response.json();
-            //     else {
-            //         alert('error');
-            //     }
-            // }).then(function(json) {
-            //     if (json.err == true) {
-            //         alert(json.msg)
-            //     }else {
-            //         alert('정상적으로 ' + act + ' 되었습니다.');
-            //         location.reload();
-            //     }
-            // }).catch(function(error){
-            //     alert('System Error');
-            
-            // });
          }
     </script>
 </body>
