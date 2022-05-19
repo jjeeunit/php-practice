@@ -10,7 +10,7 @@
 
 // exit;
 
-$Db = new Mysqli('localhost','je','jejedb79!!','je');
+$Db = new Mysqli('localhost','root','whwpdms','je');
 $userid = isset($_POST['userid']) ? $_POST['userid'] : false;
 
 $pass1 = isset($_POST['pass1']) ? $_POST['pass1'] : false;
